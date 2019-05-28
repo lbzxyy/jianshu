@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import  { CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
 import {
@@ -47,8 +47,8 @@ const Header = (props) => {
                 <Button className='writting'>
                      <i className={ props.focused? 'focused iconfont': 'iconfont'}>&#xe615;</i>
                     写文章
-                    </Button>
-                <Button className='reg'>注册</Button>
+               </Button>
+               <Button className='reg'>注册</Button>
             </Addition>
         </HeaderWrapper>
     )
@@ -57,7 +57,7 @@ const Header = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        focused: state.focused
+        focused: state.header.focused
     }
 }
 
