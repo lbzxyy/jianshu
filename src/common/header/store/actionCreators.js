@@ -1,7 +1,8 @@
+import * as contants from './constants';
 export const handleFocus = () => ({
-    type: 'handleFocus'
+    type: contants.SEARCH_FOCUS
 })
 
 export const handleBlur = () => ({
-    type: 'handleBlur'
+    type: contants.SEARCH_BLUR
 })
