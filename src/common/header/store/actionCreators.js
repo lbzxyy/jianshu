@@ -22,6 +22,10 @@ export const mouseEnter = () => ({
 export const mouseLeave = () => ({
     type: contants.MOUSE_LEAVE
 })
+export const changePage =(page) => ({
+    type: contants.CHANGE_PAGE,
+    page
+})
 export const getList = () => {
     return (dispatch) => {
         axios.get('/api/headerList.json').then( res => {

@@ -24,8 +24,9 @@ export default (state = defaultState, action) => {
             return state.set('mouseIn', true)
         case constants.MOUSE_LEAVE:
             return state.set('mouseIn', false)
+        case constants.CHANGE_PAGE:
+            return state.set('page', action.page)
         default:
             return state
-         
     }
 }
