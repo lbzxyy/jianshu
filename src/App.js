@@ -5,6 +5,8 @@ import { Provider } from 'react-redux';
 import store from './store';
 import { Iconfont } from './statics/iconfont/iconfont.js';
 import {  BrowserRouter, Route, Link } from 'react-router-dom';
+import Home from './pages/home/index';
+import Detail from "./pages/detail/index";
 
 class App extends Component {
     render() {
@@ -15,8 +17,8 @@ class App extends Component {
                 <Provider store = { store }>
                     <Header></Header>
                     <BrowserRouter>
-                        <Route path='/' exact render = { () => <div>home</div> }></Route>
-                        <Route path='/detail' exact render = { () => <div>detail</div> }></Route>
+                        <Route path='/' exact component={Home}></Route>
+                        <Route path='/detail' exact component={Detail}></Route>
                     </BrowserRouter>
                 </Provider>
             </div>
