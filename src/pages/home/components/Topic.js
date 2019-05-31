@@ -11,7 +11,7 @@ class Topic extends Component {
                     topicList.map( v => {
                         return(
                             <TopicItem key={v.get('id')}>
-                                <img className='topic-pic' src={v.get('imgUrl')}/>
+                                <img alt='' className='topic-pic' src={v.get('imgUrl')}/>
                                 {v.get('title')}
                              </TopicItem>
                         )

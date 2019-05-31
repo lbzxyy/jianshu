@@ -1,15 +1,22 @@
 import { fromJS } from 'immutable';
+import * as constants from './constants';
 const defaultState = fromJS({
-    "topicList": [{
-        "id": 1,
-        "title": "社会热点",
-        "imgUrl": "//upload.jianshu.io/collections/images/261938/man-hands-reading-boy-large.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/64/h/64"
-    }, {
-        "id": 2,
-        "title": "手手绘",
-        "imgUrl": "//upload.jianshu.io/collections/images/21/20120316041115481.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/64/h/64"
-    }],
+    "topicList": [],
+    "articleList": [],
+    "recommendList": []
 })
 export default (state = defaultState, action) => {
+    switch (action.type) {
+        case constants.GET_HOME_LIST:
+          return  state.merge({
+             topicList: action.data.get('topicList'),
+             articleList: action.data.get('articleList'),
+             recommendList: action.data.get('recommendList')
+            })
+        case constants.GET_More:  
+            return state.set('articleList',state.get('articleList').concat(action.data))
+        default:
+            break;
+    }
     return state;
 }
