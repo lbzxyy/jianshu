@@ -7,9 +7,10 @@ import { fromJS } from 'immutable';
      data: fromJS(data)
  })
 
- const getMore = (data) => ({
+ const getMore = (data,page) => ({
      type: constants.GET_More,
-     data: fromJS(data)
+     data: fromJS(data),
+     page: page
  })
 
  export const getHomeInfo = () => {
@@ -22,11 +23,11 @@ import { fromJS } from 'immutable';
      }
  }
 
- export const loadMore = () => {
+ export const loadMore = (page) => {
      return (dispatch) => {
-         axios.get('/api/homeList.json').then( res => {
+         axios.get('/api/homeList.json?page=' + page).then( res => {
              const { data } = res.data;
-             dispatch(getMore(data))
+             dispatch(getMore(data,page))
          })
      }
  }
