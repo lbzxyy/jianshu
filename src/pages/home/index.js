@@ -5,6 +5,8 @@ import Recommend from './components/Recommend';
 import Writer from './components/Writer';
 import { connect } from 'react-redux';
 import {actionCreators} from './store';
+import { BackTop } from './style';
+
 import { 
 	HomeWrapper,
 	HomeLeft,
@@ -12,7 +14,9 @@ import {
 } from './style';
 
 class Home extends Component {
-    
+    handleScrollTop() {
+        window.scrollTo(0,0)
+    }
     componentDidMount() {
          this.props.getHomeInfo()
     }
@@ -29,10 +33,16 @@ class Home extends Component {
                     <Recommend></Recommend>
                     <Writer></Writer>
                 </HomeRight>
+                { this.props.showScroll ? <BackTop onClick={this.handleScrollTop}>顶部</BackTop> : null}
             </HomeWrapper>
         )
     }
 }
+
+const mapState = (state) => ({
+	showScroll: state.getIn(['home', 'showScroll'])
+})
+
 
 const mapDispatch = (dispatch) => ({
     getHomeInfo() {
